@@ -80,7 +80,8 @@ def main():
     st.subheader("Response:")
     if generate_response and text_query:
         with st.spinner("Generating response..."):
-            st.text('This is a simple RAG application with containing a pdf data based on a research on toxic effect of microplastics on terrestrial and aquatic plants. Check more here: https://www.sciencedirect.com/science/article/abs/pii/S0048969721034045')
+            st.text('This is a simple RAG application with containing a pdf data based on a research on toxic effect of microplastics on terrestrial and aquatic plants.')
+            st.text('Check source here: https://sci-hub.se/https://doi.org/10.1016/j.scitotenv.2021.148333')
             st.text('Please enter your question in the text box below and click on the "Generate Response" button to get the answer.')
             response = qa(text_query)
             if response:
