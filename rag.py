@@ -12,6 +12,10 @@ from langchain.embeddings import SentenceTransformerEmbeddings
 st.set_page_config(page_title="Microplastic QA", page_icon="🔍", layout="wide")
 st.title("Microplastic QA")
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 # load API key from .env file
 load_dotenv()
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
