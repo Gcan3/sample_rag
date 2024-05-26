@@ -13,12 +13,12 @@ from langchain.embeddings import SentenceTransformerEmbeddings
 st.set_page_config(page_title="Microplastic QA", page_icon="🔍", layout="wide")
 st.title("Microplastic QA")
 
+# filter out warnings
+warnings.filterwarnings('ignore')
+
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
-# filter out warnings
-warnings.filterwarnings('ignore')
 
 # load API key from .env file
 load_dotenv()
