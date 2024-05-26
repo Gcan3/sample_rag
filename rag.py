@@ -83,7 +83,6 @@ def main():
             response = qa(text_query)
             if response:
                 st.write(response)
-                st.success("Response generated successfully.")
             else:
                 st.error("No response generated.")
 
