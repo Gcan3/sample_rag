@@ -10,6 +10,9 @@ from langchain.prompts import PromptTemplate
 from langchain.vectorstores import Chroma
 from langchain.embeddings import SentenceTransformerEmbeddings
 
+__import__("pysqlite3")                                     
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 # Simple UI for streamlit
 st.set_page_config(page_title="Microplastic QA", page_icon="🔍", layout="wide")
 st.title("Microplastic QA")
@@ -43,9 +46,6 @@ embeddings = SentenceTransformerEmbeddings(model_name="all-mpnet-base-v2")
 
 # Get the vector storage
 load_vector_store = Chroma(persist_directory="storage/microplastic_cosine", embedding_function=embeddings)
-
-__import__("pysqlite3")                                     
-sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 # Load the retriever
 retriever = load_vector_store.as_retriever(search_kwargs={"k": 5})
