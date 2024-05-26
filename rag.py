@@ -13,6 +13,8 @@ from langchain.embeddings import SentenceTransformerEmbeddings
 __import__("pysqlite3")                                     
 sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
+import sqlite3
+
 # Simple UI for streamlit
 st.set_page_config(page_title="Microplastic QA", page_icon="🔍", layout="wide")
 st.title("Microplastic QA")
