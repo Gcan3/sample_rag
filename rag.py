@@ -17,9 +17,6 @@ st.title("Microplastic QA")
 # filter out warnings
 warnings.filterwarnings('ignore')
 
-__import__("pysqlite3")                                     
-sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
-
 # load API key from .env file
 load_dotenv()
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets['HUGGINGFACEHUB_API_TOKEN']
@@ -46,6 +43,9 @@ embeddings = SentenceTransformerEmbeddings(model_name="all-mpnet-base-v2")
 
 # Get the vector storage
 load_vector_store = Chroma(persist_directory="storage/microplastic_cosine", embedding_function=embeddings)
+
+__import__("pysqlite3")                                     
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 # Load the retriever
 retriever = load_vector_store.as_retriever(search_kwargs={"k": 5})
