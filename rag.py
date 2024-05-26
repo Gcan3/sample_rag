@@ -1,5 +1,6 @@
 # import app and rag needed libraries
 import os
+import warnings
 import streamlit as st
 from dotenv import load_dotenv
 from langchain.llms import HuggingFaceHub
@@ -15,6 +16,9 @@ st.title("Microplastic QA")
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+# filter out warnings
+warnings.filterwarnings('ignore')
 
 # load API key from .env file
 load_dotenv()
