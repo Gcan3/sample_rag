@@ -17,7 +17,8 @@ st.title("Microplastic QA")
 # filter out warnings
 warnings.filterwarnings('ignore')
 
-sys.modules['sqlite3']
+__import__("pysqlite3")                                     
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 # load API key from .env file
 load_dotenv()
