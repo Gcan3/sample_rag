@@ -73,7 +73,7 @@ qa = qa_chain()
 # Main function for the whole process with streamlit
 def main():
     # Ask the user for the question
-    text_query = st.text_input("Enter your question here:")
+    text_query = st.text_input("Enter your question here:", placeholder="Why is microplastic harmful for aquatic plants?")
     
     generate_response = st.button("Generate Response")
     
